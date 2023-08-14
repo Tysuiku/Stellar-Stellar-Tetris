@@ -4,7 +4,7 @@ from game import Game
 pygame.init()
 dark_blue = (44, 44, 127)
 
-screen = pygame.display.set_mode((300, 600))
+screen = pygame.display.set_mode((500, 620))
 pygame.display.set_caption("Python Tetris")
 
 clock = pygame.time.Clock()

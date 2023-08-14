@@ -81,6 +81,6 @@ class Grid:
             for conlumn in range(self.num_cols):
                 cell_value = self.grid[row][conlumn]
                 # cell_rect = pygame.Rect(x,y,w,h)
-                cell_rect = pygame.Rect(conlumn*self.cell_size + 1, row*self.cell_size +1, self.cell_size -1, self.cell_size -1)
+                cell_rect = pygame.Rect(conlumn*self.cell_size + 11, row*self.cell_size +11, self.cell_size -1, self.cell_size -1)
                 # pygame.draw.rect(surface, color, rect)
                 pygame.draw.rect(screen, self.colors[cell_value], cell_rect)
