@@ -1,6 +1,6 @@
 class Colors:
     dark_gray = (57,61,71)
-    green = (38,208,124)
+    green = (47,249,36)
     red = (197,70,68)
     orange = (252,143,50)
     yellow = (255,233,0)
