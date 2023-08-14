@@ -12,7 +12,8 @@ clock = pygame.time.Clock()
 
 game_grid = Grid()
 
-block = ZBlock()
+block = OBlock()
+
 
 while True:
     for event in pygame.event.get():
