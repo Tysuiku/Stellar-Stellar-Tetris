@@ -7,6 +7,9 @@ class Colors:
     purple = (199,36,177)
     cyan = (89,203,232)
     blue = (65,105,225)
+    white = (255,255,255)
+    dark_blue = (44, 44, 127)
+    light_blue = (59,85,162)
 
     #@classmethod is a python decorator that allows you to define a method that 
     #can be called on a class rather than an instance of the class
