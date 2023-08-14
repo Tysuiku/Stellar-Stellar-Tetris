@@ -12,7 +12,7 @@ clock = pygame.time.Clock()
 game = Game()
 
 GAME_UPDATE = pygame.USEREVENT
-pygame.time.set_timer(GAME_UPDATE, 200)
+pygame.time.set_timer(GAME_UPDATE, 300)
 
 while True:
     for event in pygame.event.get():
@@ -20,15 +20,18 @@ while True:
             pygame.quit()
             sys.exit()
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_a:
+            if game.game_over == True:
+                game.game_over = False
+                game.reset()
+            if event.key == pygame.K_a and game.game_over == False:
                 game.move_left()
-            if event.key == pygame.K_d:
+            if event.key == pygame.K_d and game.game_over == False:
                 game.move_right()
-            if event.key == pygame.K_s:
+            if event.key == pygame.K_s and game.game_over == False:
                 game.move_down()
-            if event.key == pygame.K_j:
+            if event.key == pygame.K_j and game.game_over == False:
                 game.rotate()
-        if event.type == GAME_UPDATE:
+        if event.type == GAME_UPDATE and game.game_over == False:
             game.move_down()
 
     #Drawing
