@@ -3,7 +3,8 @@ import pygame
 from position import Position
 
 class Block:
-    def __init__(self, id):
+    def __init__(self, id, initial=True):
+        self.initial = initial
         self.id = id
         self.cells = {}
         self.cell_size = 30
@@ -38,7 +39,12 @@ class Block:
         tiles = self.get_cell_positions()
         for tile in tiles:
             tile_rect = pygame.Rect(offset_x + tile.column * self.cell_size, offset_y + tile.row * self.cell_size,
-            self.cell_size -1, self.cell_size - 1)
-            pygame.draw.rect(screen, self.colors[self.id], tile_rect)
-
-    
+                                    self.cell_size - 1, self.cell_size - 1)
+            
+            if self.initial:
+                # Create a new Surface with alpha channel
+                s = pygame.Surface((self.cell_size, self.cell_size), pygame.SRCALPHA)
+                s.fill((*self.colors[self.id][:3], 128))  # Fill with transparent color
+                screen.blit(s, (offset_x + tile.column * self.cell_size, offset_y + tile.row * self.cell_size))
+            else:
+                pygame.draw.rect(screen, self.colors[self.id], tile_rect)

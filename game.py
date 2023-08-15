@@ -96,14 +96,25 @@ class Game:
             if self.grid.is_inside(tile.row, tile.column) == False:
                 return False
         return True
+    
+    def hard_drop(self):
+        # Move the current block down until it collides.
+        while True:
+            self.current_block.move(1,0)
+            if self.block_inside() == False or self.block_fits() == False:
+                # When collision occurs, move it back up by one step 
+                # and then lock the block in place.
+                self.current_block.move(-1, 0)
+                self.lock_block()
+                break
 
     def draw(self, screen):
         self.grid.draw(screen)
         self.current_block.draw(screen, 11, 11)
 
         if self.next_block.id == 3:
-            self.next_block.draw(screen, 255, 290)
+            self.next_block.draw(screen, 255, 290 - 50)
         elif self.next_block.id == 4:
-            self.next_block.draw(screen, 255, 280)
+            self.next_block.draw(screen, 255, 280 - 50)
         else:
-            self.next_block.draw(screen, 270, 270)
+            self.next_block.draw(screen, 270, 270 - 50)
