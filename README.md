@@ -11,7 +11,8 @@ by creating the game tetris and to practice utilizing pygame to create games.
 - A key to move Left 
 - D key to move right
 - S key to move down
-- Spacebar key to hard-drop 
+- Spacebar key to hard-drop
+- J key to rotate
 
 ## Preview
 
